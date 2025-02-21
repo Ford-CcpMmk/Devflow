@@ -2,13 +2,22 @@
 @tailwind components;
 @tailwind utilities;
 
-body {
+/* body {
   font-family: "Inter", sans-serif;
-}
+} */
 
 :root {
   --radius: 8px;
 }
+
+/* There are 3 main types of layer directives
+
+1. Base: Defines the foundational styles like resets or element defaults, like for headings, H1, H2, H3 sizes, font families and so on.
+
+2. Components: is used for reusable component-level styles, such as buttons or cards, for consistency.
+
+3. Utilities: allowing you to create special utility classes that modify individual properties like margins, paddings, or background colors.
+*/
 
 @layer utilities {
   .background-light850_dark100 {
@@ -292,5 +301,11 @@ body {
       rgba(23, 28, 35, 0.41) 0%,
       rgba(19, 22, 28, 0.7) 100%
     );
+  }
+}
+
+@layer base {
+  :root {
+    --radius: 0.5rem;
   }
 }

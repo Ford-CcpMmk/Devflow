@@ -1,0 +1,40 @@
+WHEN TO USE RENDERING ON CLIENT/SERVER SIDE ?
+
+The client refers to the device you are currently using. The device sends requests to the server and displays the interface that we can then interact with. 
+
+The server is essentially just a computer device, but it's equipped with a strong configuration and remains operational continuously. It's where all the code for our application is stored.
+
+So when the client, meaning our device, sends a request, the server performs the necessary computations and sends back the required outcome.
+
+In previous versions of Next.js, specifically versions before 13, we faced limitations where server-side rendering was restricted to individual pages. This meant that only the routes page like /, /about, or /projects and so on could be rendered on the server side. This limitation led to challenges such as prop drilling and duplication of API calls when passing data to lower level components. To gain a deeper understanding of the differences between pages directory and the app directory in Next.js, read https://vercel.com/blog/nextjs-app-router-data-fetching .
+
+App directory is not only introduced many features, but also brought the revolutionary change which is Component-level server-side rendering. That means that we now have the ability to choose where we want to render specific components or sections of code. With this new cability, we can decide whether we want to render it on the server side or the client side in the user's browser. And that's how we end up with 2 type of components, client components and server components.
+
+But you might be wondering why would you want to render a small component on the server side. By strategically deciding to render certain components on the server side, we can save user's browsers from doing extra work with Javascript to show these components. Instead, we get the initial HTML code for these component, which the browser can display immediately. This reduce the size of the Javascript bundle, making the initial page load faster. Rather than fetching and passing data to components seperately, we can fetch the data directly within the component turning it into a server component.
+
+So if we choose to do server-side rendering, we have many different benefits. 
+1. Smaller Javascript bundle size because we're just returning HTML.
+2. Enhanced SEO - the browsers improve search engine visibility and the indexing of your website's content.
+3. Faster initial page load for better accessibility and user experience. Users can see the content more quickly, leading to a smoother browsing experience.
+4. Efficient utilization of server resources - By fetching data closer to the server, the time required to retrieve the data is reduced, resulting in improved performance.
+
+When to decide what render where ? 
+- As the name suggests, where to render each components depends on what the component does. If a component needs the user to interact with it, sush as clicking buttons, entering information in input fields, triggering events or using React hook, then it should be a client component. These interaction rely on capabilities of the user's browser, so they need to be rendered on the client side.
+- On the other hand, if a component doesn't require any user interaction, involves task like fetching data from a server. Display static content or performing server-side computations, it can be a server components. These components can be rendered on the server without any specific browser features.
+
+
+Different Rendering Strategies
+
+In Next.js, there are different ways of displaying elements on pages, called strategies, and the specific times when they run called runtime or build time, and the specific places where they work, called enviroment.
+
+Rendering
+- It's a process of generating or creating the user interface from the code we write. React18 and Next.js introduced different strategies to render an application. Believe it or not, we can use multiple strategies within the same application to render content differently. 
+
+There are 2 environments where we can render our application code. The client, or the user's browser, and the server, which is the computer where we deploy our code.
+
+When it comes to rendering process on the client, it occuurs on the user's browser. However, when we render on the server, it happens on the server before sending the page to the client's browser.
+
+When it come to interactivity & load time, on the client side it provides a dynamic and interactive user experience. But on the server, it provides a fully rendered HTML page to the client resulting in faster initial page load time.
+
+Continue... (Page 127)
+
