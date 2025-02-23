@@ -34,6 +34,13 @@ const RootLayout = async ({ children }: { children: ReactNode }) => {
 
   return (
     <html lang="en" suppressHydrationWarning>
+      <head>
+        <link
+          rel="stylesheet"
+          type="text/css"
+          href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css"
+        />
+      </head>
       <SessionProvider session={session}>
         {/* if you use .className, it will set it as defualt font of the application. */}
         <body
