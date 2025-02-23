@@ -40,14 +40,15 @@ const MobileNavigation = () => {
           </p>
         </Link>
 
-        <div className="flex h-[calc(100vh-80px)] flex-col justify-between overflow-y-auto">
+        <div className="flex h-full flex-col justify-between overflow-y-auto py-6">
           <SheetClose asChild>
-            <section className="flex h-full flex-col gap-6 pt-16">
+            <section className="flex flex-col gap-6 pt-16">
               <NavLinks isMobileNav />
             </section>
           </SheetClose>
 
           <div className="flex flex-col gap-3">
+            {/* Whenever we click a link that's in between the SheetClose tags, it'll actually close the sheet and redirect us to that link. */}
             <SheetClose asChild>
               <Link href={ROUTES.SIGN_IN}>
                 <Button className="small-medium btn-secondary min-h-[41px] w-full rounded-lg px-4 py-3 shadow-none">
