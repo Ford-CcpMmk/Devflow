@@ -1,5 +1,4 @@
 import type { Config } from "tailwindcss";
-import tailwindcssAnimate from "tailwindcss-animate";
 
 const config: Config = {
   darkMode: ["class"],
@@ -43,8 +42,8 @@ const config: Config = {
         xs: "420px",
       },
       fontFamily: {
-        "space-grotesk": ["var(--font-space-grotesk)"],
         inter: ["var(--font-inter)"],
+        "space-grotesk": ["var(--font-space-grotesk)"],
       },
       borderRadius: {
         "2": "8px",
@@ -59,7 +58,6 @@ const config: Config = {
       },
     },
   },
-  plugins: [tailwindcssAnimate],
+  plugins: [require("tailwindcss-animate"), require("@tailwindcss/typography")],
 };
-
 export default config;
